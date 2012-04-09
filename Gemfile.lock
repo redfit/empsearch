@@ -30,6 +30,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.7)
     arel (3.0.2)
+    best_in_place (1.0.6)
+      jquery-rails
+      rails (~> 3.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -199,6 +202,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place
   capybara
   coffee-rails (~> 3.2.1)
   cucumber

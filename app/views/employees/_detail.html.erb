@@ -9,7 +9,7 @@
   <div class="span9">
     <dl class="well dl-horizontal">
       <dt>メールアドレス：</dt>
-      <dd><%= employee.email.present? ? employee.email : "&nbsp;".html_safe %></dd>
+      <dd><%= best_in_place employee, :email %></dd>
       <dt>所属部署：</dt>
       <dd><%= employee.unit.present? ? employee.unit : "&nbsp;".html_safe %></dd>
       <dt>役職：</dt>
@@ -23,7 +23,7 @@
       <dt>勤務地：</dt>
       <dd><%= employee.place.present? ? employee.place : "&nbsp;".html_safe  %></dd>
       <dt>自己紹介：</dt>
-      <dd><%= employee.introduction.present? ? simple_format(employee.introduction) : "&nbsp;".html_safe %></dd>
+      <dd><%= best_in_place employee, :introduction, :type => :textarea, :nil => '未登録', :display_with => :simple_format %></dd>
       <dt>目標：</dt>
       <dd><%= employee.target.present? ? simple_format(employee.target) : "&nbsp;".html_safe %></dd>
     </dl>

@@ -27,6 +27,7 @@ gem 'progress_bar'
 gem 'kaminari'
 gem 'sunspot_with_kaminari'
 gem 'flextures'
+gem 'best_in_place'
 
 group :development do
   gem 'sunspot_solr'

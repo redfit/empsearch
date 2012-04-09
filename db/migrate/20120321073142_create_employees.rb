@@ -5,13 +5,13 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :usa_id
       t.string :pic_name
       t.string :email
-      t.text   :user_name
-      t.text   :unit
-      t.text   :role
-      t.text   :tel1
-      t.text   :tel2
-      t.text   :tel3
-      t.text   :place
+      t.string :user_name
+      t.string :unit
+      t.string :role
+      t.string :tel1
+      t.string :tel2
+      t.string :tel3
+      t.string :place
       t.text   :introduction
       t.text   :target
 
