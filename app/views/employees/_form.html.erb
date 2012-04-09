@@ -1,0 +1,101 @@
+<%= form_for @employee, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Employee</legend>
+
+    <div class="control-group">
+      <%= f.label :user_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :user_id, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :usa_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :usa_id, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :pic_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :pic_name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :user_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :user_name, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :unit, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :unit, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :role, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :role, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tel1, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :tel1, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tel2, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :tel2, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tel3, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :tel3, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :place, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :place, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :introduction, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :introduction, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :target, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :target, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', employees_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

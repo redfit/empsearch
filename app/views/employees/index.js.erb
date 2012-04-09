@@ -1,0 +1,6 @@
+$('#employees').append('<%= j render(@employees) %>');
+<% if @employees.next_page %>
+  $('.pagination').replaceWith('<%= j paginate(@employees) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>
+    社員検索
+    <small>chrome または firefox 推奨 <strong>internet explorer</strong>は動作未確認</small>
+  </h1>
+</div>
+<div class="row">
+  <div class="span8">
+    <div id="employees" class="row">
+      <% if @employees.length > 0 %>
+        <%= render :partial => 'employee', :collection => @employees %>
+      <% else %>
+        <div class="alert alert-error">０件です。検索条件を変更してください。</div>
+      <% end %>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="well">
+      <fieldset>
+        <legend>組織一覧</legend>
+        <ul class="unstyled">
+          <% for row in @search.facet(:unit).rows %>
+            <li>
+              <% if params[:unit].blank? %>
+                <%= link_to row.value, :unit => row.value %> ( <%= row.count %> )
+              <% else %>
+                <strong><%= row.value %></strong> ( <%= link_to "remove", :unit => nil %> )
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<%= paginate @employees %>
