@@ -1,4 +1,8 @@
-$('#employees').append('<%= j render(@employees) %>');
+$('#dsp-normal').append('<%= j render(@employees) %>');
+<% @employees.each do |row| %>
+  $('#dsp-detail').append('<%= j render(:partial => 'detail', :locals => {:employee => row}) %>');
+<% end %>
+
 <% if @employees.next_page %>
   $('.pagination').replaceWith('<%= j paginate(@employees) %>');
 <% else %>

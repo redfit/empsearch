@@ -1,31 +1,31 @@
 <div id="profile" class="row">
-  <div class="span9">
+  <div class="span8">
     <a href="#" class="close" data-dismiss="modal">x</a>
     <%= image_tag employee.pic_name, :class => 'avatar' %>
     <h1><%= employee.user_name %></h1>
   </div>
 </div>
 <div class="row">
-  <div class="span9">
+  <div class="span8">
     <dl class="well dl-horizontal">
       <dt>メールアドレス：</dt>
       <dd><%= best_in_place employee, :email %></dd>
       <dt>所属部署：</dt>
-      <dd><%= employee.unit.present? ? employee.unit : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.unit.present? ? employee.unit : "未登録" %></dd>
       <dt>役職：</dt>
-      <dd><%= employee.role.present? ? employee.role : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.role.present? ? employee.role : "未登録" %></dd>
       <dt>内線：</dt>
-      <dd><%= employee.tel1.present? ? employee.tel1 : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.tel1.present? ? employee.tel1 : "未登録" %></dd>
       <dt>外線：</dt>
-      <dd><%= employee.tel2.present? ? employee.tel2 : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.tel2.present? ? employee.tel2 : "未登録" %></dd>
       <dt>その他連絡先：</dt>
-      <dd><%= employee.tel3.present? ? employee.tel3 : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.tel3.present? ? employee.tel3 : "未登録" %></dd>
       <dt>勤務地：</dt>
-      <dd><%= employee.place.present? ? employee.place : "&nbsp;".html_safe  %></dd>
+      <dd><%= employee.place.present? ? employee.place : "未登録"  %></dd>
       <dt>自己紹介：</dt>
-      <dd><%= best_in_place employee, :introduction, :type => :textarea, :nil => '未登録', :display_with => :simple_format %></dd>
+      <dd><%= employee.unit.present? ? employee.introduction : "未登録" %></dd>
       <dt>目標：</dt>
-      <dd><%= employee.target.present? ? simple_format(employee.target) : "&nbsp;".html_safe %></dd>
+      <dd><%= employee.unit.present? ? employee.target : "未登録" %></dd>
     </dl>
   </div>
 </div>

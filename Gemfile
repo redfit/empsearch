@@ -31,6 +31,7 @@ gem 'best_in_place'
 
 group :development do
   gem 'sunspot_solr'
+  gem 'pry'
 end
 
 # To use ActiveModel has_secure_password

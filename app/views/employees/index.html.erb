@@ -7,11 +7,29 @@
 <div class="row">
   <div class="span8">
     <div id="employees" class="row">
-      <% if @employees.length > 0 %>
-        <%= render :partial => 'employee', :collection => @employees %>
-      <% else %>
-        <div class="alert alert-error">０件です。検索条件を変更してください。</div>
-      <% end %>
+      <ul class="nav nav-tabs">
+        <li id="tab-normal" class="active">
+          <%= link_to '通常表示', '#dsp-normal', "data-toggle" =>'tab' %>
+        </li>
+        <li id="tab-detail">
+          <%= link_to '詳細表示', '#dsp-detail', "data-toggle" =>'tab' %>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="dsp-normal" class="tab-pane active">
+          <% if @employees.length > 0 %>
+            <%= render :partial => 'employee', :collection => @employees %>
+          <% else %>
+            <div class="alert alert-error">０件です。検索条件を変更してください。</div>
+          <% end %>
+        </div>
+        <div id="dsp-detail" class="tab-pane">
+          <% @employees.each do |row| %>
+            <%= render :partial => 'detail', :locals=> {:employee => row} %>
+            <hr />
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="span4">

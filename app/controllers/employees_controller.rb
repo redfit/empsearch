@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
       order_by :usa_id
       facet(:unit)
       with(:unit, params[:unit]) if params[:unit].present?
-      paginate :page => params[:page], :per_page => 20
+      paginate :page => params[:page], :per_page => 10
     end
 
     @employees = @search.results
