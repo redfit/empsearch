@@ -11,7 +11,6 @@ class EmployeesController < ApplicationController
     end
 
     @employees = @search.results
-
   end
 
   # GET /employees/1

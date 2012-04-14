@@ -1,22 +1,21 @@
-  <div class="span4">
-    <div class="sbox" style="height: 175px;">
-      <h3 class="txc"><%= employee.user_name %>
-        <%= link_to "<i class='icon-envelope icon-white'></i>".html_safe, "mailto:#{employee.email}", class: "btn btn-success btn-mini"  %>
-        <a data-toggle="modal" href="#myModal<%= employee.id %>" class="btn btn-primary btn-mini">詳細</a>
-      </h3>
-      <p class="pull-left"><%= image_tag employee.pic_name, :size => "100x120" %></p>
-        <dl class="dl-horizontal-index">
-          <dt>内線：</dt>
-          <dd><%= employee.tel1.present? ? employee.tel1 : "&nbsp;".html_safe %></dd>
-          <dt>外線：</dt>
-          <dd><%= employee.tel2.present? ? employee.tel2 : "&nbsp;".html_safe %></dd>
-          <dt>勤務地：</dt>
-          <dd><%= employee.place.present? ? employee.place : "&nbsp;".html_safe  %></dd>
-        </dl>
-        <div id="myModal<%= employee.id %>" class="modal hide fade" style="display: none; ">
-          <div class="modal-body">
-            <%= render :partial => 'detail', :locals => {:employee => employee} %>
-          </div>
-        </div>
+<div class="span4">
+  <div class="sbox" style="height: 175px;">
+    <h3 class="txc"><%= employee.user_name %></h3>
+    <p class="pull-left">
+      <a data-toggle="modal" href="#myModal<%= employee.id %>"><%= image_tag employee.pic_name, :size => "100x120" %></a>
+    </p>
+    <dl class="dl-horizontal-index">
+      <dt>内線：</dt>
+      <dd><%= employee.tel1.present? ? employee.tel1 : "&nbsp;".html_safe %></dd>
+      <dt>外線：</dt>
+      <dd><%= employee.tel2.present? ? employee.tel2 : "&nbsp;".html_safe %></dd>
+      <dt>勤務地：</dt>
+      <dd><%= employee.place.present? ? employee.place : "&nbsp;".html_safe  %></dd>
+    </dl>
+    <div id="myModal<%= employee.id %>" class="modal hide fade" style="display: none; ">
+      <div class="modal-body">
+        <%= render :partial => 'detail', :locals => {:index => nil, :detail => employee, :modal => true} %>
+      </div>
     </div>
   </div>
+</div>

@@ -1,10 +1,22 @@
-$('#dsp-normal').append('<%= j render(@employees) %>');
-<% @employees.each do |row| %>
-  $('#dsp-detail').append('<%= j render(:partial => 'detail', :locals => {:employee => row}) %>');
+<%#= ページング以外は検索結果をリセットする  %>
+<% unless params[:page] %>
+  $("#dsp-normal, .carousel-inner").empty()
 <% end %>
 
+<%#= スクロール時に検索結果を追加する %>
+$('#dsp-normal').append('<%= j render(@employees) %>');
+$('.carousel-inner').append('<%= j render(:partial => 'detail_collection', :collection => @employees) %>');
+$("a[href=#dsp-normal]").click();
+
+<%#= 組織一覧の更新 %>
+$('#organization').empty().append('<%= j render(:partial => 'organization', :locals => {:search => @search}) %>');
+
+<%#= ページング部分の更新 %>
+$('.pagination').remove();
+$('#dsp-normal').append('<%= j render(:partial => 'pagenate') %>');
 <% if @employees.next_page %>
   $('.pagination').replaceWith('<%= j paginate(@employees) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>
+

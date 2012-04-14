@@ -4,52 +4,46 @@
     <small>chrome または firefox 推奨 <strong>internet explorer</strong>は動作未確認</small>
   </h1>
 </div>
-<div class="row">
+<div id="search_result" class="row">
   <div class="span8">
+    <%= content_tag(:dev, "０件です。検索条件を変更してください。", :class => "span7 alert alert-error") if @employees.length == 0 %>
     <div id="employees" class="row">
-      <ul class="nav nav-tabs">
-        <li id="tab-normal" class="active">
-          <%= link_to '通常表示', '#dsp-normal', "data-toggle" =>'tab' %>
-        </li>
-        <li id="tab-detail">
-          <%= link_to '詳細表示', '#dsp-detail', "data-toggle" =>'tab' %>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div id="dsp-normal" class="tab-pane active">
-          <% if @employees.length > 0 %>
+      <% if @employees.length > 0 %>
+        <ul class="nav nav-tabs">
+          <li id="tab-normal" class="active">
+            <%= link_to '通常表示', '#dsp-normal', "data-toggle" =>'tab' %>
+          </li>
+          <li id="tab-detail">
+            <%= link_to '詳細表示', '#dsp-detail', "data-toggle" =>'tab' %>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div id="dsp-normal" class="tab-pane active">
             <%= render :partial => 'employee', :collection => @employees %>
-          <% else %>
-            <div class="alert alert-error">０件です。検索条件を変更してください。</div>
-          <% end %>
+            <%= paginate @employees %>
+          </div>
+          <div id="dsp-detail" class="tab-pane">
+            <div id="myCarousel" class="carousel">
+              <div class="carousel-inner">
+                <%= render :partial => 'detail_collection', :collection => @employees %>
+              </div>
+              <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+              <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+          </div>
         </div>
-        <div id="dsp-detail" class="tab-pane">
-          <% @employees.each do |row| %>
-            <%= render :partial => 'detail', :locals=> {:employee => row} %>
-            <hr />
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
   <div class="span4">
     <div class="well">
       <fieldset>
         <legend>組織一覧</legend>
-        <ul class="unstyled">
-          <% for row in @search.facet(:unit).rows %>
-            <li>
-              <% if params[:unit].blank? %>
-                <%= link_to row.value, :unit => row.value %> ( <%= row.count %> )
-              <% else %>
-                <strong><%= row.value %></strong> ( <%= link_to "remove", :unit => nil %> )
-              <% end %>
-            </li>
-          <% end %>
+        <ul id="organization" class="unstyled">
+          <%= render :partial => 'organization', :locals => {:search => @search} %>
         </ul>
       </fieldset>
     </div>
   </div>
 </div>
 
-<%= paginate @employees %>
