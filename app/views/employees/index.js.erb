@@ -20,3 +20,14 @@ $('#dsp-normal').append('<%= j render(:partial => 'pagenate') %>');
   $('.pagination').remove();
 <% end %>
 
+if(<%= @employees.length %> > 0){
+  $("#init_info").css("display", "none");
+  $("#employees").css("display", "");
+}
+
+
+<% if (!params[:page] && !params[:unit].present? && !params[:search].present?) %>
+  $("#employees").css("display", "none");
+  $("#init_info").css("display", "");
+<% end %>
+

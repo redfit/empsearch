@@ -5,7 +5,7 @@
 jQuery ->
   if $('.pagination').length
     $(window).scroll ->
-      if $("#tab-normal").attr("class") is "active"
+      if $("#tab-normal").attr("class") is "active" and $('#init_info').css("display") is "none"
         url = $('.pagination .next_page a').attr('href')
         if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
           $('.pagination').text("Fetching more products...")
@@ -13,4 +13,6 @@ jQuery ->
     $(window).scroll()
 
   $('.best_in_place').best_in_place()
+
+
 
