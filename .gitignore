@@ -15,6 +15,7 @@
 /tmp
 
 .DS_Store
+*.swp
 *.rbc
 *.sassc
 capybara-*.html
