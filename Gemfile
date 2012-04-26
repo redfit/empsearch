@@ -28,10 +28,12 @@ gem 'kaminari'
 gem 'sunspot_with_kaminari'
 gem 'flextures'
 gem 'best_in_place'
+gem 'draper'
 
 group :development do
   gem 'sunspot_solr'
-  gem 'pry'
+  gem 'thin'
+  # gem 'pry'
 end
 
 # To use ActiveModel has_secure_password

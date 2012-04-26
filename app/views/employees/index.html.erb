@@ -1,13 +1,15 @@
-<div class="page-header">
-  <h1>
-    社員検索
-    <small>chrome または firefox 推奨 <strong>internet explorer</strong>は動作未確認</small>
-  </h1>
+<div class="row">
+  <div class="page-header">
+    <h1>
+      社員検索
+      <small>chrome または firefox 推奨 <strong>internet explorer</strong>は動作未確認</small>
+    </h1>
+  </div>
 </div>
 <div id="search_result" class="row">
   <div class="span8">
-    <%= content_tag(:dev, "０件です。検索条件を変更してください。", :class => "span7 alert alert-error") if @employees.length == 0 %>
-    <%= content_tag(:dev, "検索条件を指定してください。", :id => "init_info", :class => "span7 alert alert-info") if (!params[:unit].present? && !params[:search].present?) %>
+    <%= content_tag(:div, "０件です。検索条件を変更してください。", :class => "alert alert-error") if @employees.length == 0 %>
+    <%= content_tag(:div, "検索条件を指定してください。", :id => "init_info", :class => "alert alert-info") if (!params[:unit].present? && !params[:search].present?) %>
     <div id="employees" class="row" <%= "style='display:none'" if (!params[:unit].present? && !params[:search].present?) %>>
       <% if @employees.length > 0 %>
         <ul class="nav nav-tabs">
