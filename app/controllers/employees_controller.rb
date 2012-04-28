@@ -10,7 +10,9 @@ class EmployeesController < ApplicationController
       paginate :page => params[:page], :per_page => 10
     end
 
+    @search.results.map!{|r| r = EmployeeDecorator.new r}
     @employees = @search.results
+
   end
 
   # GET /employees/1

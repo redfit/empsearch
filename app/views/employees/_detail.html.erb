@@ -2,8 +2,7 @@
   <div id="profile" class="row">
     <div class="span8">
       <%= link_to 'x', '#', :class => 'close', "data-dismiss" => "modal" if modal %>
-      <%= image_tag detail.pic_name, :class => 'avatar' %>
-      <h1><%= detail.user_name %></h1>
+      <%= detail.avatar %>
     </div>
   </div>
   <div class="row">

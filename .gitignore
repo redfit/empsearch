@@ -20,7 +20,6 @@
 *.sassc
 capybara-*.html
 .rspec
-config/database.yml
 config/*.yml
 db/schema.rb
 vendor/bundle

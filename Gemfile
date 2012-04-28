@@ -59,5 +59,6 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
