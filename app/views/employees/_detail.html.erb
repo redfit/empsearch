@@ -1,7 +1,7 @@
 <div class="item <%= "active" if index == 0 if index.present? && !params[:page] %>">
   <div id="profile" class="row">
     <div class="span8">
-      <%= link_to 'x', '#', :class => 'close', "data-dismiss" => "modal" if modal %>
+      <%= detail.dsp_modal_x_employee(modal) %>
       <%= detail.avatar %>
     </div>
   </div>
@@ -10,25 +10,25 @@
       <dl class="well dl-horizontal">
         <dt>メールアドレス：</dt>
         <dd>
-        <%= detail.email.present? ? detail.email : "未登録" %>
-        <%= link_to "<i class='icon-envelope icon-white'></i>".html_safe, "mailto:#{detail.email}", class: "btn btn-success btn-mini"  %>
+        <%= detail.dsp_email %>
+        <%= detail.dsp_icon_email %>
         </dd>
         <dt>所属部署：</dt>
-        <dd><%= detail.unit.present? ? detail.unit : "未登録" %></dd>
+        <dd><%= detail.dsp_unit %></dd>
         <dt>役職：</dt>
-        <dd><%= detail.role.present? ? detail.role : "未登録" %></dd>
+        <dd><%= detail.dsp_role %></dd>
         <dt>内線：</dt>
-        <dd><%= detail.tel1.present? ? detail.tel1 : "未登録" %></dd>
+        <dd><%= detail.dsp_tel1 %></dd>
         <dt>外線：</dt>
-        <dd><%= detail.tel2.present? ? detail.tel2 : "未登録" %></dd>
+        <dd><%= detail.dsp_tel2 %></dd>
         <dt>その他連絡先：</dt>
-        <dd><%= detail.tel3.present? ? detail.tel3 : "未登録" %></dd>
+        <dd><%= detail.dsp_tel3 %></dd>
         <dt>勤務地：</dt>
-        <dd><%= detail.place.present? ? detail.place : "未登録"  %></dd>
+        <dd><%= detail.dsp_place  %></dd>
         <dt>自己紹介：</dt>
-        <dd><%= detail.introduction.present? ? detail.introduction : "未登録" %></dd>
+        <dd><%= detail.dsp_introduction %></dd>
         <dt>目標：</dt>
-        <dd><%= detail.target.present? ? detail.target : "未登録" %></dd>
+        <dd><%= detail.dsp_target %></dd>
       </dl>
     </div>
   </div>

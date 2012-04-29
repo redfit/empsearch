@@ -1,4 +1,4 @@
-<% for row in search.facet(:unit).rows.sort { |left,right| left.value <=> right.value } %>
+<% for row in search.facet(:unit).rows %>
   <li>
     <% if params[:unit].blank? %>
       <%= link_to row.value, params.merge(:unit => row.value, :page => nil), :remote => true %> ( <%= row.count %> )

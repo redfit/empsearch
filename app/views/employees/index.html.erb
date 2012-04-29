@@ -8,8 +8,8 @@
 </div>
 <div id="search_result" class="row">
   <div class="span8">
-    <%= content_tag(:div, "０件です。検索条件を変更してください。", :class => "alert alert-error") if @employees.length == 0 %>
-    <%= content_tag(:div, "検索条件を指定してください。", :id => "init_info", :class => "alert alert-info") if (!params[:unit].present? && !params[:search].present?) %>
+    <%= not_found_alert if @employees.length == 0 %>
+    <%= select_condition_label if (!params[:unit].present? && !params[:search].present?) %>
     <div id="employees" class="row" <%= "style='display:none'" if (!params[:unit].present? && !params[:search].present?) %>>
       <% if @employees.length > 0 %>
         <ul class="nav nav-tabs">

@@ -10,9 +10,11 @@ class EmployeesController < ApplicationController
       paginate :page => params[:page], :per_page => 10
     end
 
+    # decoratorに入れ替え
     @search.results.map!{|r| r = EmployeeDecorator.new r}
+    # 組織名でソート
+    @search.facet(:unit).rows.sort! { |left,right| left.value <=> right.value }
     @employees = @search.results
-
   end
 
   # GET /employees/1

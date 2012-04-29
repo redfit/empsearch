@@ -1,28 +1,33 @@
+# coding: utf-8
 class ApplicationDecorator < Draper::Base
-  # Lazy Helpers
-  #   PRO: Call Rails helpers without the h. proxy
-  #        ex: number_to_currency(model.price)
-  #   CON: Add a bazillion methods into your decorator's namespace
-  #        and probably sacrifice performance/memory
-  #
-  #   Enable them by uncommenting this line:
-  #   lazy_helpers
+  include Draper::LazyHelpers
 
-  # Shared Decorations
-  #   Consider defining shared methods common to all your models.
-  #
-  #   Example: standardize the formatting of timestamps
-  #
-  #   def formatted_timestamp(time)
-  #     h.content_tag :span, time.strftime("%a %m/%d/%y"),
-  #                   :class => 'timestamp'
-  #   end
-  #
-  #   def created_at
-  #     formatted_timestamp(model.created_at)
-  #   end
-  #
-  #   def updated_at
-  #     formatted_timestamp(model.updated_at)
-  #   end
+  attr_accessor :none
+
+  def initialize(input, options = {})
+    @none="未登録"
+    super
+  end
+
+  def dsp_modal_x
+    link_to 'x', '#', :class => 'close', "data-dismiss" => "modal"
+  end
+
+  def self.dsp_handle_none_attr(*names)
+    names.each do |name|
+      define_method("dsp_#{name}") do
+        handle_none(model.send(name)){model.send(name)}
+      end
+    end
+  end
+
+  private
+
+  def handle_none(value)
+    if value.present?
+      yield
+    else
+      @none
+    end
+  end
 end
