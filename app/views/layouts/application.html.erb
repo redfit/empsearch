@@ -24,11 +24,14 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><%= link_to "社内ホームページ" %></li>
-              <li class="active" ><%= link_to "社員検索", '' %></li>
+              <li class="active" ><%= link_to "社員検索", root_path %></li>
               <li><%= link_to "Proナビ" %></li>
               <li><%= link_to "Kunitter" %></li>
             </ul>
           </div>
+          <ul class="nav pull-right">
+            <li><%= link_to "ログイン", new_user_session_path, :remote => true %></li>
+          </ul>
           <%= form_tag employees_path, :method => :get, :class => "navbar-search pull-right" do %>
             <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
           <% end %>
@@ -37,6 +40,11 @@
     </div>
     <div class="container">
       <%= yield %>
+    </div>
+    <div id="sign_in" class="modal hide fade" style="">
+      <div class="modal-body">
+        aaaaa
+      </div>
     </div>
   </body>
 </html>

@@ -29,6 +29,7 @@ gem 'sunspot_with_kaminari'
 gem 'flextures'
 gem 'best_in_place'
 gem 'draper'
+gem 'devise'
 
 group :development do
   gem 'sunspot_solr'
