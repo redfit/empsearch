@@ -18,7 +18,7 @@ group :assets do
   gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', '>= 2.0.7'
 end
 
 gem 'jquery-rails'
@@ -34,7 +34,7 @@ gem 'devise'
 group :development do
   gem 'sunspot_solr'
   gem 'thin'
-  # gem 'pry'
+  gem 'pry'
 end
 
 # To use ActiveModel has_secure_password
@@ -60,6 +60,6 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
-  gem 'debugger'
+  # gem 'debugger'
 end
 

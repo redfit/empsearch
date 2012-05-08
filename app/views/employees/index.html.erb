@@ -8,8 +8,8 @@
 </div>
 <div id="search_result" class="row">
   <div class="span8">
-    <%= not_found_alert if @employees.length == 0 %>
-    <%= select_condition_label if (!params[:unit].present? && !params[:search].present?) %>
+    <%= create_alert_message("error", "０件です。検索条件を変更してください。", false) if @employees.length == 0 %>
+    <%= create_alert_message("info", "検索条件を指定してください。", false) if (!params[:unit].present? && !params[:search].present?) %>
     <div id="employees" class="row" <%= "style='display:none'" if (!params[:unit].present? && !params[:search].present?) %>>
       <% if @employees.length > 0 %>
         <ul class="nav nav-tabs">
