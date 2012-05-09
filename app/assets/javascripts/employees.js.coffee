@@ -12,7 +12,6 @@ jQuery ->
           $.getScript(url)
     $(window).scroll()
 
-  $('.best_in_place').best_in_place()
 
 
 
