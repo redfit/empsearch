@@ -3,6 +3,6 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   $('.carousel').carousel(
-      interval: 36000000
+      # interval: 36000000
   )
 

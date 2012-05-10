@@ -13,5 +13,7 @@ jQuery ->
     $(window).scroll()
 
 
-
+  $("#tab-normal, #tab-detail").click((e)->
+    $('.carousel').carousel('pause')
+  )
 
