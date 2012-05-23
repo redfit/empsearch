@@ -3,7 +3,7 @@
     <% if params[:unit].blank? %>
       <%= link_to row.value, employees_path(params.merge(:unit => row.value, :page => nil)), :remote => true %> ( <%= row.count %> )
     <% else %>
-      <strong><%= row.value %></strong> ( <%= link_to "remove", employees_path(params.merge(:unit => nil, :page => nil)), :remote => true %> )
+      <strong><%= row.value %></strong> ( <%= link_to "x", employees_path(params.merge(:unit => nil, :page => nil)), :remote => true %> )
     <% end %>
   </li>
 <% end %>
