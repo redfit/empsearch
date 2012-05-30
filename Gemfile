@@ -19,6 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -30,6 +31,9 @@ gem 'flextures'
 gem 'best_in_place'
 gem 'draper'
 gem 'devise'
+gem 'carrierwave'
+gem 'simple_form'
+gem 'rmagick'
 
 group :development do
   gem 'sunspot_solr'

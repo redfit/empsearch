@@ -1,8 +1,11 @@
 EmployeeSearch::Application.routes.draw do
 
+  resources :galleries
+  resources :photos
+
   devise_for :users
 
-  root :to => "employees#index"
+  root :to => redirect("employees")
 
   resources :employees
 

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="page-header">
+    <h1>アルバム ギャラリー
+      <small>アルバム名をclickすると詳細が見れます。 chrome または firefox 推奨
+      </h1>
+    </div>
+    <div class="accordion-group" style="margin-bottom: 5px">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne">アルバムを追加する</a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
+        <div class="accordion-inner">
+          <%= render :partial => 'form' %>
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>最近アップした写真</th>
+          <th>アルバム名</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @galleries.each do |gallery| %>
+          <tr>
+            <td><%= gallery.small_thumbnails %></td>
+            <td><%= link_to gallery.name, gallery_path(gallery) %></td>
+            <td><%= gallery.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

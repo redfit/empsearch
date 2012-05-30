@@ -30,3 +30,4 @@ spec/tmp/*
 rerun.txt
 solr/data/*
 solr/pids/*
+public/uploads/*

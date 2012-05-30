@@ -15,14 +15,7 @@
 //= require bootstrap
 //= require jquery.purr
 //= require best_in_place
+//= require jquery.easing.1.3
+//= require jquery.vgrid.min
 //= require_tree .
-
-jQuery ->
-  $("a[rel=popover]").popover()
-  $(".tooltip").tooltip()
-  $("a[rel=tooltip]").tooltip()
-  $('.carousel').carousel(
-      // intervalやらない方法がないので１時間設定
-      interval: 36000000
-  )
 

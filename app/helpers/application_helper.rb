@@ -1,5 +1,17 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
+  def active_employees?(request)
+    active_menu? request, "employees"
+  end
+
+  def active_album?(request)
+    active_menu? request, "galleries", "photos"
+  end
+
+  def active_menu?(request, *menu)
+    "active" if menu.detect{|m| request.path.index(m)}
+  end
+
   def not_fund_alert
     create_alert_message("", "error", "０件です。検索条件を変更してください。", false)
   end

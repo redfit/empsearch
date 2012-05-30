@@ -24,8 +24,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><%= link_to "社内ホームページ" %></li>
-              <li class="active" ><%= link_to "社員検索", root_path %></li>
-              <li><%= link_to "Proナビ" %></li>
+              <li class="<%= active_employees?(request) %>"><%= link_to "社員検索", employees_path %></li>
+              <li class="<%= active_album?(request) %>"><%= link_to "写真館", galleries_path %></li>
               <li><%= link_to "Kunitter" %></li>
             </ul>
           </div>
@@ -33,6 +33,7 @@
             <li><%= link_to "ログイン", new_user_session_path, :remote => true %></li>
           </ul>
           <%= form_tag employees_path, :method => :get, :class => "navbar-search pull-right" do %>
+            <div class="icon-search icon-white"></div>
             <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
           <% end %>
         </div>

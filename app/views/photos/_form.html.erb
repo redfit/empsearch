@@ -1,0 +1,11 @@
+<%= simple_form_for(@photo, :url => new_photo_path(:gallery_id => @gallery)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.file_field :photo, :class => 'input-file' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

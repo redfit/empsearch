@@ -2,7 +2,5 @@ jQuery ->
   $("a[rel=popover]").popover()
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
-  $('.carousel').carousel(
-      # interval: 36000000
-  )
+  $('.carousel').carousel()
 
