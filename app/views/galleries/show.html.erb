@@ -7,9 +7,10 @@
       </h1>
     </div>
     <div class="accordion-group" style="margin-bottom: 5px">
-      <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne">写真を追加する</a>
-      </div>
+      <button class="btn btn-primary" data-toggle="collapse" href="#collapseOne">
+        <i class="icon-upload icon-white"></i>
+        写真を追加する
+      </button>
       <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
         <div class="accordion-inner">
           <%= simple_form_for(@photo ? @photo : Photo.new, :url => photos_path, :html => { :class => 'form-horizontal' }) do |f| %>
@@ -37,7 +38,10 @@
               <h5><%= best_in_place photo.photo, :name %></h5>
               <p><%= best_in_place photo, :description, :display_as => :dsp_description %></p>
               <p>
-                <%= link_to '削除', photo, confirm: '本当に削除しますか？', method: :delete, :class => 'btn btn-danger btn-mini' %>
+                <%= link_to photo, confirm: '本当に削除しますか？', method: :delete, :class => 'btn btn-danger' do %>
+                  <i class="icon-trash icon-white"></i>
+                  削除
+                <% end %>
               </p>
             </div>
           </div>
