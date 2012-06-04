@@ -32,7 +32,7 @@
       <% @gallery.photos.each do |photo| %>
         <div class="span3" style="margin-bottom:15px">
           <div class="thumbnail">
-            <%= image_tag photo.photo_url(:thumb) %>
+            <%= image_tag photo.photo_url(:thumb), id: :thumbnail %>
             <div class="caption">
               <h5><%= photo.name %></h5>
               <p><%= simple_format photo.description %></p>

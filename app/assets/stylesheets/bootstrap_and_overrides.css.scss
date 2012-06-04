@@ -1,4 +1,3 @@
-
 // @import "twitter/bootstrap/responsive";
 
 // // Set the correct sprite paths
@@ -55,6 +54,7 @@ body { padding-top: 60px; }
   }
 }
 
+// 検索フィールドの虫眼鏡
 .dl-horizontal-index {
   dt {
     float: left;
@@ -76,7 +76,27 @@ body { padding-top: 60px; }
     left: 11px;
 }
 
-
 .navbar-search .search-query:focus, .navbar-search .search-query.focused {
     padding-left: 30px;
+}
+
+// 写真のズームアップ
+@mixin scale ($value){
+  -webkit-transform: scale($value);
+  -moz-transform: scale($value);
+  -o-transform: scale($value);
+  transform: scale($value);
+}
+@mixin transition($value){
+  -webkit-transition: all $value ease-in-out;
+  -moz-transition: all $value ease-in-out;
+  -o-transition: all $value ease-in-out;
+  transition: all $value ease-in-out;
+}
+
+#thumbnail {
+  @include transition(0.3s);
+}
+.thumbnail img:hover {
+  @include scale(1.5);
 }
