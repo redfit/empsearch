@@ -1,6 +1,6 @@
 class GalleryDecorator < ApplicationDecorator
   decorates :gallery
-  decorates_association :photo
+  decorates_association :photos
 
   def small_thumbnails
     handle_none(model.photos) do

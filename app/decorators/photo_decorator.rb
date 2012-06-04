@@ -1,5 +1,6 @@
 class PhotoDecorator < ApplicationDecorator
   decorates :photo
+  dsp_handle_none_attr :description
 
   # Accessing Helpers
   #   You can access any helper via a proxy
