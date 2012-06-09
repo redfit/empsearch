@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require 'omniauth-twitter'
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -220,4 +221,9 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+
+  # omniauth for twitter
+  config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
 end
+
+

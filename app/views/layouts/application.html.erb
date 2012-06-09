@@ -30,7 +30,11 @@
             </ul>
           </div>
           <ul class="nav pull-right">
-            <li><%= link_to "ログイン", new_user_session_path, :remote => true %></li>
+            <% if current_user %>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to image_tag("/assets/twitter.png", :size => "24x24"), user_omniauth_authorize_path(:twitter) %></li>
+            <% end %>
           </ul>
           <%= form_tag employees_path, :method => :get, :class => "navbar-search pull-right" do %>
             <div class="icon-search icon-white"></div>
@@ -40,6 +44,8 @@
       </div>
     </div>
     <div class="container">
+      <%= create_alert_message("", "success", notice, true) %>
+      <%= create_alert_message("", "alert", alert, true) %>
       <%= yield %>
     </div>
     <div id="sign_in" class="sign-modal hide fade" style="">
