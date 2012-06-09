@@ -35,7 +35,7 @@
           <div class="thumbnail">
             <%= image_tag photo.photo.photo_url(:thumb), id: :thumbnail %>
             <div class="caption">
-              <h5><%= best_in_place photo.photo, :name %></h5>
+              <h5><%= best_in_place photo, :name, :display_as => :dsp_name %></h5>
               <p><%= best_in_place photo, :description, :display_as => :dsp_description %></p>
               <p>
                 <%= link_to photo, confirm: '本当に削除しますか？', method: :delete, :class => 'btn btn-danger' do %>
