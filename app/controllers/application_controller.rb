@@ -7,9 +7,17 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resources)
-    request.env["HTTP_REFERER"]
+    return_url
   end
   def after_sign_out_path_for(resources)
-    request.env["HTTP_REFERER"]
+    return_url
   end
+
+  private
+
+  def return_url
+    url = request.env["HTTP_REFERER"]
+    url ? url : employees_path
+  end
+
 end

@@ -223,7 +223,14 @@ Devise.setup do |config|
   # end
 
   # omniauth for twitter
-  config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
+  # omniauth for facebook
+  if Rails.env == "development"
+    config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
+    config.omniauth :facebook, "478281528864469", "2836525bc587626ba1e69605bece15b7"
+  else
+    config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
+    config.omniauth :facebook, "478281528864469", "2836525bc587626ba1e69605bece15b7"
+  end
 end
 
 

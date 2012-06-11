@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    data = access_token.extra.raw_info
+    if user = self.where(:name => data.name).first
+      user
+    else # Create a user with a stub password.
+      self.create!(:email => data.email, :password => Devise.friendly_token[0,20], :uid => data.id,
+                 :image => access_token.info.image, :name => data.name)
+    end
+  end
   # ユーザ作成時のメソッドらしい
   def self.new_with_session(params, session)
     super.tap do |user|

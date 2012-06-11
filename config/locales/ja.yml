@@ -200,6 +200,8 @@ ja:
       <<: *errors
 
   devise:
+    omniauth_callbacks:
+      success: "%{kind}アカウントでログインしました。"
     confirmations:
       confirmed: "アカウントの認証に成功しました。既にログイン済みです。"
       new:

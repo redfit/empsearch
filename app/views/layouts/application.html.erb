@@ -20,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">uelbook</a>
+          <a class="brand" href="<%= employees_path %>">uelbook</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li><%= link_to "社内ホームページ" %></li>
@@ -29,14 +29,30 @@
               <li><%= link_to "Kunitter" %></li>
             </ul>
           </div>
-          <ul class="nav pull-right">
+          <ul class="nav pull-right" style="height:40px">
             <% if current_user %>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %></li>
+              <li style="width:40px; height:38px"><%= image_tag current_user.image, :size => "38x40" %></li>
+              <li class="dropdown" id="menu1">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                  <strong><%= current_user.name %></strong>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %></li>
+                </ul>
+              </li>
             <% else %>
-              <li><%= link_to image_tag("/assets/twitter.png", :size => "24x24"), user_omniauth_authorize_path(:twitter) %></li>
+              <li>
+                <%= link_to image_tag("/assets/twitter.png", :size => "28x28"),
+                  user_omniauth_authorize_path(:twitter), :rel => "tooltip", "data-original-title" => "sign in through twitter" %>
+              </li>
+              <li>
+                <%= link_to image_tag("/assets/facebook.png", :size => "28x28"),
+                  user_omniauth_authorize_path(:facebook), :rel => "tooltip", "data-original-title" => "sign in through facebook" %>
+              </li>
             <% end %>
           </ul>
-          <%= form_tag employees_path, :method => :get, :class => "navbar-search pull-right" do %>
+          <%= form_tag employees_path, :method => :get, :class => "navbar-search" do %>
             <div class="icon-search icon-white"></div>
             <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
           <% end %>
@@ -44,8 +60,8 @@
       </div>
     </div>
     <div class="container">
-      <%= create_alert_message("", "success", notice, true) %>
-      <%= create_alert_message("", "alert", alert, true) %>
+      <%= create_alert_message("alert", "success", notice, true) %>
+      <%= create_alert_message("alert", "alert", alert, true) %>
       <%= yield %>
     </div>
     <div id="sign_in" class="sign-modal hide fade" style="">
