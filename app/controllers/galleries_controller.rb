@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = GalleryDecorator.decorate(Gallery.find(:all, :include => :photos))
+    @galleries = GalleryDecorator.decorate(Gallery.find(:all, :include => {:photos => :likes}))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.json
   def show
     @gallery = GalleryDecorator.find(params[:id])
+    flash[:notice] = "ログインすると「いいね！」ボタンが押せるようになります。" unless current_user
 
     respond_to do |format|
       format.html # show.html.erb

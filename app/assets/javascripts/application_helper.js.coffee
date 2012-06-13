@@ -7,4 +7,4 @@ jQuery ->
 
   setTimeout ->
     $('#alert').fadeOut("slow")
-  , 2000
+  , 3000

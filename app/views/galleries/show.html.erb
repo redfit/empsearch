@@ -38,11 +38,8 @@
               <h5><%= best_in_place photo, :name, :display_as => :dsp_name %></h5>
               <p><%= best_in_place photo, :description, :display_as => :dsp_description %></p>
               <p>
-                <button class="btn btn-info btn-mini">
-                  <i class="icon-thumbs-up icon-white"></i>
-                  いいね
-                </button>
-                <span class="badge badge-info">8</span>
+                <span id="<%= "like_#{photo.id}" %>"><%= photo.like_button %></span>
+                <span id="<%= "badge_#{photo.id}" %>"><%= photo.like_badge %></span>
                 <%= link_to photo, confirm: '本当に削除しますか？', method: :delete, :class => 'btn btn-danger btn-mini pull-right' do %>
                   <i class="icon-trash icon-white"></i>
                 <% end %>
