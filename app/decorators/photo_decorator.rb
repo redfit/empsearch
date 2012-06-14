@@ -26,15 +26,15 @@ class PhotoDecorator < ApplicationDecorator
   def create_like_button
     did = model.likes.detect{ |r| r.user_id == current_user.id }
 
-    # if did
-    #   link_to [model, did], :class => "btn btn-warning btn-mini", :method => :delete, :remote => true do
-    #     "<i class='icon-thumbs-up icon-white'></i>取り消す".html_safe
-    #   end
-    # else
+    if did
+      link_to [model, did], :class => "btn btn-warning btn-mini", :method => :delete, :remote => true do
+        "<i class='icon-thumbs-down icon-white'></i>取り消す".html_safe
+      end
+    else
       link_to photo_likes_path(model), :class => "btn btn-info btn-mini", :method => :post, :remote => true do
         "<i class='icon-thumbs-up icon-white'></i>いいね！".html_safe
       end
-    # end
+    end
   end
 
   def badge_level
@@ -49,7 +49,4 @@ class PhotoDecorator < ApplicationDecorator
       "important"
     end
   end
-
-
-
 end

@@ -24,6 +24,9 @@ body { padding-top: 60px; }
   background-color: #3B5998;
   font-family: Tahoma,Kalimati,sans-serif;
   color: #FFFFFF;
+  text-shadow:0 1px 0px #aa0303,0 2px 0px #aa0303;
+  background:-moz-linear-gradient(rgba(34,85,136,0.5), rgba(34,85,136,1));
+  background:-webkit-gradient(linear, 100% 0%, 100% 100%, from(rgba(255,222,211,1)), to(rgba(255,055,060,1)));
 }
 
 

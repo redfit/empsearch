@@ -228,7 +228,7 @@ Devise.setup do |config|
     config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
     config.omniauth :facebook, "478281528864469", "2836525bc587626ba1e69605bece15b7"
   else
-    config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc"
+    config.omniauth :twitter, "rErmHXV1jcCzmw6Sz4L5Jw", "nprs6Zej8WYq3PGbAdPhQLhREUO9CHntl1jPXRugsc", {:client_options => { :proxy => ENV["HTTP_PROXY"] || ENV["http_proxy"]  }}
     config.omniauth :facebook, "478281528864469", "2836525bc587626ba1e69605bece15b7"
   end
 end
