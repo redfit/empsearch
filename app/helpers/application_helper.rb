@@ -12,7 +12,7 @@ module ApplicationHelper
     "active" if menu.detect{|m| request.path.index(m)}
   end
 
-  def not_fund_alert
+  def not_found_alert
     create_alert_message("", "error", "０件です。検索条件を変更してください。", false)
   end
 
