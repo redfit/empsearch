@@ -2,7 +2,7 @@
 class LikesController < ApplicationController
   before_filter :load_likable
   def create
-    @likable.likes.create!(:user_id => current_user)
+    @likable.likes.create!(:user_id => current_user.id)
     render "galleries/show"
   end
 
