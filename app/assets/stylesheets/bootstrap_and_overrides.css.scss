@@ -103,3 +103,9 @@ body { padding-top: 60px; }
 .thumbnail img:hover {
   @include scale(1.5);
 }
+
+// アルバム一覧 td
+#album.table td{
+  vertical-align:middle;
+  height:50px;
+}

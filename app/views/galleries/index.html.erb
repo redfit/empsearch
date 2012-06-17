@@ -14,9 +14,10 @@
         </div>
       </div>
     </div>
-    <table class="table table-bordered table-striped">
+    <table id="album" class="table table-bordered table-striped">
       <thead>
         <tr>
+          <th style="width:150px">人気数(TOTAL)</th>
           <th>最近アップした写真</th>
           <th>アルバム名</th>
           <th>説明</th>
@@ -25,6 +26,14 @@
       <tbody>
         <% @galleries.each do |gallery| %>
           <tr>
+            <td>
+              <div class="btn-toolbar">
+                <div class="btn-group">
+                  <button class="btn btn-info disabled"><i class='icon-thumbs-up icon-white'></i>いいね！</button>
+                  <button class="btn btn-info disabled"><%= gallery.photos.inject(0){|v, r| v += r.likes.length} %></button>
+                </div>
+              </div>
+            </td>
             <td><%= gallery.small_thumbnails %></td>
             <td><%= link_to gallery.name, gallery_path(gallery) %></td>
             <td><%= gallery.description %></td>
