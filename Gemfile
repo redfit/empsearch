@@ -36,6 +36,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'simple_form'
 gem 'rmagick'
+gem 'mercury-rails'
 
 group :development do
   gem 'sunspot_solr'

@@ -14,13 +14,13 @@
   <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container" style="height:40px">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="<%= employees_path %>">UELBOOK</a>
+          <a class="brand" href="<%= root_path %>">UELBOOK</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li><%= link_to "社内ホームページ" %></li>
@@ -29,7 +29,7 @@
               <li><%= link_to "Kunitter" %></li>
             </ul>
           </div>
-          <ul class="nav pull-right" style="height:40px">
+          <ul class="nav pull-right">
             <% if current_user %>
               <li style="width:40px; height:38px"><%= image_tag current_user.image, :size => "38x40" %></li>
               <li class="dropdown" id="menu1">
