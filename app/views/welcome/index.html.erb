@@ -1,26 +1,25 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1><span id="page_title" data-mercury="simple"><%= raw @page.title %></span></h1>
-        <p><span id="page_description" data-mercury="full"><%= raw @page.description %></span></p>
-        <p><%= link_to "さっそく使ってみる »",employees_path, class: "btn btn-primary btn-large" %></p>
-        <%= link_to "Edit Page", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_welcome_path(@page) } %>
+        <span id="page_description" data-mercury="full"><%= raw @page.description %></span>
+        <p><%= link_to "社員検索へ »",employees_path, class: "btn btn-primary btn-large" %></p>
       </div>
-
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>更新履歴</h2>
+          <p><%= link_to "要望をメールする »", "mailto:daisuke.fuchiwaki@excel.co.jp", class: "btn" %></p>
+          <span id="page_content1" data-mercury="full">
+            <%= raw @page.content1 %>
+          </span>
         </div>
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <div class="span8">
+          <div class="well">
+            <h2>自由編集用</h2>
+            <p><%= link_to "編集してみる »", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_welcome_path(@page) }, class: "btn" %></p>
+            <span id="page_content2" data-mercury="full">
+              <%= raw @page.content2 %>
+            </span>
+          </div>
         </div>
       </div>
