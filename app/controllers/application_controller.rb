@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_locale
+  before_filter :set_locale, :like_message
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -17,7 +18,10 @@ class ApplicationController < ActionController::Base
 
   def return_url
     url = request.env["HTTP_REFERER"]
-    url ? url : employees_path
+    url ? url : root_path
   end
 
+  def like_message
+    flash[:notice] = "ログインすると「いいね！」ボタンが押せるようになります。" unless current_user
+  end
 end

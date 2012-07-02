@@ -15,7 +15,6 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.json
   def show
     @gallery = GalleryDecorator.find(params[:id])
-    flash[:notice] = "ログインすると「いいね！」ボタンが押せるようになります。" unless current_user
 
     respond_to do |format|
       format.html # show.html.erb

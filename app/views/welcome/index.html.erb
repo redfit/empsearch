@@ -3,32 +3,35 @@
         <h1><span id="page_title" data-mercury="simple"><%= raw @page.title %></span></h1>
         <span id="page_description" data-mercury="full"><%= raw @page.description %></span>
         <p>
-          <%= link_to employees_path, class: "btn btn-primary btn-large" do %>
-            <i class='icon-search icon-white'></i> 社員検索へ »
-          <% end %>
+          WYSIWYG結構
+          <span id="<%= "like_#{@page.id}" %>"><%= @page.like_button %></span>
+          <span id="<%= "badge_#{@page.id}" %>"><%= @page.like_badge %></span>
+          <div>
+            <%= link_to employees_path, class: "btn btn-primary btn-large" do %>
+              <i class='icon-search icon-white'></i> 社員検索へ »
+            <% end %>
+          </div>
         </p>
       </div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
-          <h2>更新履歴</h2>
-          <p>
+          <h2>更新履歴
             <%= link_to "mailto:daisuke.fuchiwaki@excel.co.jp", class: "btn btn-info" do %>
               要望を <i class='icon-envelope icon-white'></i> する »
             <% end %>
-          </p>
+          </h2>
           <span id="page_content1" data-mercury="full">
             <%= raw @page.content1 %>
           </span>
         </div>
         <div class="span8">
           <div class="well">
-            <h2>自由編集用</h2>
-            <p>
+            <h2>自由編集用
               <%= link_to "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_welcome_path(@page) }, class: "btn btn-danger" do %>
                 <i class='icon-edit icon-white'></i> 編集してみる »
               <% end %>
-            </p>
+            </h2>
             <span id="page_content2" data-mercury="full">
               <%= raw @page.content2 %>
             </span>

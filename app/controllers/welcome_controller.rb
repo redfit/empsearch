@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @page = Page.first_or_create!
+    @page = PageDecorator.new(Page.first_or_create!)
   end
 
   def mercury_update
